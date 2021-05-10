@@ -4,7 +4,8 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
-
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -27,10 +28,14 @@ class EmployeeController {
 		this.repository = repository;
 	}
 
-	// Aggregate root
 
-	// tag::get-aggregate-root[]
 	@GetMapping("/employees")
+        public ResponseEntity<?> getEmpleados(){
+           return new ResponseEntity<>("Error", HttpStatus.BAD_REQUEST);
+        }
+        
+        
+        
 	CollectionModel<EntityModel<Employee>> all() {
 
 		List<EntityModel<Employee>> employees = repository.findAll().stream()
@@ -41,7 +46,8 @@ class EmployeeController {
 
 		return CollectionModel.of(employees, linkTo(methodOn(EmployeeController.class).all()).withSelfRel());
 	}
-	// end::get-aggregate-root[]
+
+        
 
 	@PostMapping("/employees")
 	Employee newEmployee(@RequestBody Employee newEmployee) {
