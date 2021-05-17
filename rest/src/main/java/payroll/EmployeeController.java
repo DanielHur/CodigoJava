@@ -32,7 +32,7 @@ class EmployeeController {
 
 	@GetMapping("/employees")
         public ResponseEntity<?> getEmpleados(){
-           return new ResponseEntity<>("Ok", HttpStatus.OK);
+           return new ResponseEntity<>("Ok.", HttpStatus.OK);
         }
         
         
