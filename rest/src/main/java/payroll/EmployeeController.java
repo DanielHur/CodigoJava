@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -31,7 +32,7 @@ class EmployeeController {
 
 	@GetMapping("/employees")
         public ResponseEntity<?> getEmpleados(){
-           return new ResponseEntity<>("Error", HttpStatus.BAD_REQUEST);
+           return new ResponseEntity<>("Ok", HttpStatus.OK);
         }
         
         
